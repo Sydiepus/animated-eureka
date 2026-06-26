@@ -1,12 +1,10 @@
 /**
- * CatAPI Class - Handles communication with API Ninjas Cat API
+ * CatAPI Class - Handles communication with API Ninjas Cat API via serverless function
  * Implements fetching, caching, and error handling
  */
 
 class CatAPI {
   constructor() {
-    this.apiKey = API_CONFIG.key;
-    this.baseUrl = API_CONFIG.baseUrl || 'https://api.api-ninjas.com/v1/cats';
     this.cache = new Map();
     this.storagePrefix = 'cat-api-';
     this.loadFromLocalStorage();
@@ -54,6 +52,7 @@ class CatAPI {
 
   /**
    * Fetch cats from API with pagination
+   * Uses serverless function to keep API key secure
    * @param {number} offset - Offset for pagination (default: 0)
    * @returns {Promise<Array>} - Array of cat objects
    */
@@ -67,17 +66,13 @@ class CatAPI {
     }
 
     try {
-      const url = new URL(this.baseUrl);
+      const url = new URL('/api/cats', window.location.origin);
       // API Ninjas requires at least one parameter besides offset
       // Using min_weight=1 to include all cats
       url.searchParams.append('min_weight', '1');
       url.searchParams.append('offset', offset);
       
-      const response = await fetch(url.toString(), {
-        headers: {
-          'X-Api-Key': this.apiKey
-        }
-      });
+      const response = await fetch(url.toString());
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));

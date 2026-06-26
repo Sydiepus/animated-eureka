@@ -457,12 +457,7 @@ class CatGrid {
 
 // Initialize application when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  // Wait for config to load (it's loaded via script tag before this)
-  if (typeof API_CONFIG !== 'undefined') {
-    const api = new CatAPI();
-    const catGrid = new CatGrid(api);
-    console.log('CatGrid application initialized');
-  } else {
-    console.error('API_CONFIG not found. Make sure config.js is loaded before main.js');
-  }
+  const api = new CatAPI();
+  const catGrid = new CatGrid(api);
+  console.log('CatGrid application initialized with serverless API proxy');
 });
