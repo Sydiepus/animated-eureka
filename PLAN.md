@@ -743,13 +743,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 **Goal:** Establish project foundation
 
-- [ ] Create project directory structure
-- [ ] Initialize Git repository
-- [ ] Create `.gitignore` file (include `js/config.js`, `node_modules/`)
-- [ ] Create HTML5 boilerplate for all 3 pages (index, about, gallery)
-- [ ] Set up basic CSS reset and variables in `style.css`
-- [ ] Create consistent navigation bar across all pages
-- [ ] Create `.gitignore` and add config.js
+- [x] Create project directory structure
+- [x] Initialize Git repository
+- [x] Create `.gitignore` file (include `js/config.js`, `node_modules/`)
+- [x] Create HTML5 boilerplate for all 3 pages (index, about, gallery)
+- [x] Set up basic CSS reset and variables in `style.css`
+- [x] Create consistent navigation bar across all pages
+- [x] Create `.gitignore` and add config.js
 - [ ] Initial commit: "Project setup - directory structure and boilerplate"
 
 **Deliverables:**
@@ -763,14 +763,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 **Goal:** Implement the responsive card grid layout
 
-- [ ] Add Bootstrap 5 CSS/JS to HTML
-- [ ] Create semantic HTML structure for card grid
-- [ ] Implement CSS Grid layout with responsive columns
-- [ ] Create card component with image, title, description
-- [ ] Implement hover effects (transform, shadow, overlay)
-- [ ] Style cards with Bootstrap + custom CSS
-- [ ] Add placeholder content for testing
-- [ ] Test responsiveness on multiple screen sizes
+- [x] Add Bootstrap 5 CSS/JS to HTML
+- [x] Create semantic HTML structure for card grid
+- [x] Implement CSS Grid layout with responsive columns
+- [x] Create card component with image, title, description
+- [x] Implement hover effects (transform, shadow, overlay)
+- [x] Style cards with Bootstrap + custom CSS
+- [x] Add placeholder content for testing
+- [x] Test responsiveness on multiple screen sizes
 - [ ] Test on actual mobile devices
 - [ ] Commit: "Add responsive card grid with hover effects"
 

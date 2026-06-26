@@ -33,7 +33,8 @@ for my own content I will add explanation about why cats are cool and my experie
 My project is to Design a responsive card grid layout with hover effects
 ```
 ### What AI Got Wrong & How I Fixed It
-
+- After adding Bootstrap 5 CSS, the navbar was displaying the different pages vertically, after debugging the CSS I found that bootstrap applies `flex-direction: column;` to the navbar which I was able to override with `flex-direction: row;` in my `navbar-nav` class.
+- Navbar disappearing on mobile devices, remove `display: none;` from `@media (max-width: 768px)`
 ## Screenshots
 
 ### Desktop View (1920x1080)
