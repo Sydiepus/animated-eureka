@@ -17,6 +17,9 @@ body {
     line-height: var(--line-height-base);
     color: var(--text-color);
     background-color: var(--bg-color);
+    background-image: var(--bg-image);
+    background-repeat: var(--bg-repeat);
+    background-attachment: var(--bg-attachment);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,17 +46,22 @@ img {
 /* CSS Variables */
 :root {
     /* Colors */
-    --color-primary: #4a6fa5;
-    --color-secondary: #166088;
-    --color-accent: #4fc3f7;
-    --color-light: #f8f9fa;
-    --color-dark: #343a40;
+    --color-primary: #4fc3f7;
+    --color-secondary: #81d4fa;
+    --color-accent: #00bcd4;
+    --color-light: #e1f5fe;
+    --color-dark: #01579b;
     
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --text-color-light: #666666;
+    --bg-color: #0a0a2a;
+    --text-color: #e0e0e0;
+    --text-color-light: #b0b0b0;
     --link-color: var(--color-primary);
     --link-color-hover: var(--color-secondary);
+    
+    /* 2000s theme background - dark blue with falling white noses */
+    --bg-image: url('../images/web-back-cat-nose-flat.gif');
+    --bg-repeat: repeat;
+    --bg-attachment: fixed;
     
     /* Typography */
     --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -80,7 +88,7 @@ img {
     --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
     
     /* Navigation */
-    --nav-bg: var(--color-secondary);
+    --nav-bg: rgba(10, 10, 42, 0.9);
     --nav-text: #ffffff;
     --nav-text-hover: var(--color-accent);
     --nav-height: 60px;
@@ -174,20 +182,22 @@ img {
 
 /* Footer */
 .footer {
-    background-color: var(--color-dark);
+    background-color: rgba(10, 10, 42, 0.9);
     color: var(--color-light);
     text-align: center;
     padding: var(--spacing-md);
     margin-top: auto;
+    border-top: 1px solid var(--color-accent);
 }
 
 /* Page Headings */
 .page-heading {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
+    color: var(--color-accent);
     padding-bottom: var(--spacing-sm);
-    border-bottom: 2px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-accent);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Legacy card grid styles - kept for compatibility with existing pages */
@@ -200,12 +210,12 @@ img {
 
 /* Card Component (for non-dynamic pages) */
 .card {
-    background: white;
+    background: rgba(20, 20, 50, 0.8);
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
-    border: none;
+    border: 1px solid var(--color-accent);
 }
 
 .card:hover {
@@ -265,11 +275,11 @@ img {
 .card-title {
     font-size: var(--font-size-large);
     margin-bottom: var(--spacing-xs);
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 .card-text {
-    color: var(--text-color-light);
+    color: var(--text-color);
     font-size: var(--font-size-small);
     margin-bottom: var(--spacing-sm);
     line-height: var(--line-height-base);
@@ -357,6 +367,30 @@ img {
 }
 
 .search-form .form-control {
+    background-color: rgba(20, 20, 50, 0.7);
+    color: var(--text-color);
+    border-color: var(--color-accent);
+}
+
+.search-form .form-control::placeholder {
+    color: var(--text-color-light);
+}
+
+.search-form .btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.search-form .btn-outline-secondary {
+    color: var(--text-color);
+    border-color: var(--color-accent);
+}
+
+.search-form .btn-outline-secondary:hover {
+    background-color: rgba(0, 188, 212, 0.2);
+}
+
+.search-form .form-control {
     border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
     border-right: none;
 }
@@ -395,11 +429,12 @@ img {
     width: 3rem;
     height: 3rem;
     margin-bottom: var(--spacing-md);
+    border-right-color: var(--color-accent);
 }
 
 .loading-text {
     font-size: var(--font-size-large);
-    color: var(--text-color-light);
+    color: var(--text-color);
 }
 
 /* Alert Styles (Error and Empty States) */
@@ -409,6 +444,9 @@ img {
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-md);
     text-align: center;
+    background-color: rgba(20, 20, 50, 0.7);
+    color: var(--text-color);
+    border: 1px solid var(--color-accent);
 }
 
 /* Pagination Info */
@@ -433,19 +471,21 @@ img {
 .pagination .page-link {
     border-radius: var(--border-radius-sm);
     padding: var(--spacing-xs) var(--spacing-md);
-    border: 1px solid var(--border-color);
-    color: var(--color-primary);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    background-color: rgba(20, 20, 50, 0.7);
 }
 
 .pagination .page-link:hover {
-    background-color: var(--color-light);
+    background-color: rgba(0, 188, 212, 0.2);
     border-color: var(--color-primary);
+    color: white;
 }
 
 .pagination .page-item.active .page-link {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-    color: white;
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-dark);
 }
 
 .pagination .page-item.disabled .page-link {
@@ -456,12 +496,13 @@ img {
 
 /* Cat Card Hover Overlay - using Bootstrap classes */
 .cat-card {
-    border: none;
+    border: 1px solid var(--color-accent);
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
     height: 100%;
+    background: rgba(20, 20, 50, 0.8);
 }
 
 .cat-card:hover {
@@ -491,7 +532,7 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+    background: linear-gradient(to bottom, rgba(10,10,42,0.9), rgba(10,10,42,0.7));
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -525,11 +566,11 @@ img {
 .cat-card .card-title {
     font-size: var(--font-size-large);
     margin-bottom: var(--spacing-xs);
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 .cat-card .card-text {
-    color: var(--text-color-light);
+    color: var(--text-color);
     font-size: var(--font-size-small);
     margin-bottom: var(--spacing-sm);
     line-height: var(--line-height-base);
@@ -576,18 +617,19 @@ img {
 
 /* About Page Styles */
 .about-section {
-    background-color: var(--color-light);
+    background-color: rgba(20, 20, 50, 0.7);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius-md);
-    border-left: 4px solid var(--color-primary);
+    border-left: 4px solid var(--color-accent);
+    border: 1px solid var(--color-accent);
 }
 
 .about-section h2 {
-    color: var(--color-primary);
+    color: var(--color-accent);
     font-size: 1.75rem;
     margin-bottom: var(--spacing-md);
     padding-bottom: var(--spacing-sm);
-    border-bottom: 2px solid var(--color-accent);
+    border-bottom: 2px solid var(--color-primary);
 }
 
 .about-list {
@@ -600,16 +642,16 @@ img {
     counter-increment: item-counter;
     margin-bottom: var(--spacing-lg);
     padding: var(--spacing-md);
-    background-color: white;
+    background-color: rgba(30, 30, 60, 0.6);
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
-    border-left: 3px solid var(--color-accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-left: 3px solid var(--color-primary);
 }
 
 .about-list li::before {
     content: counter(item-counter);
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--color-accent);
+    color: var(--color-dark);
     font-weight: bold;
     width: 2rem;
     height: 2rem;
@@ -623,7 +665,7 @@ img {
 
 .about-list li strong {
     display: block;
-    color: var(--color-primary);
+    color: var(--color-accent);
     margin-bottom: var(--spacing-xs);
     font-size: var(--font-size-large);
 }
@@ -642,26 +684,26 @@ img {
 }
 
 .experience-item {
-    background-color: white;
+    background-color: rgba(20, 20, 50, 0.7);
     padding: var(--spacing-md);
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-accent);
     transition: all 0.3s ease;
 }
 
 .experience-item:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
     transform: translateY(-3px);
-    border-color: var(--color-accent);
+    border-color: var(--color-primary);
 }
 
 .experience-item h3 {
-    color: var(--color-secondary);
+    color: var(--color-accent);
     margin-bottom: var(--spacing-sm);
     font-size: var(--font-size-large);
     padding-bottom: var(--spacing-xs);
-    border-bottom: 2px solid var(--color-accent);
+    border-bottom: 2px solid var(--color-primary);
 }
 
 .experience-item p {
@@ -678,16 +720,16 @@ img {
 }
 
 .fact-card {
-    background-color: white;
+    background-color: rgba(20, 20, 50, 0.7);
     padding: var(--spacing-md);
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-accent);
     transition: all 0.3s ease;
 }
 
 .fact-card:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
     transform: translateY(-5px);
     border-color: var(--color-primary);
 }
@@ -699,14 +741,14 @@ img {
 }
 
 .fact-card h3 {
-    color: var(--color-primary);
+    color: var(--color-accent);
     margin-bottom: var(--spacing-sm);
     font-size: var(--font-size-large);
     text-align: center;
 }
 
 .fact-card p {
-    color: var(--text-color-light);
+    color: var(--text-color);
     line-height: var(--line-height-base);
     margin: 0;
     font-size: var(--font-size-small);
@@ -718,7 +760,7 @@ img {
 }
 
 .gallery-teaser h2 {
-    color: var(--color-secondary);
+    color: var(--color-accent);
     margin-bottom: var(--spacing-md);
 }
 
@@ -736,13 +778,14 @@ img {
     height: 200px;
     object-fit: cover;
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-md);
-    border: 3px solid var(--color-primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--color-accent);
     transition: transform 0.3s ease;
 }
 
 .personal-image:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
 }
 
 /* Responsive adjustments for about page */
@@ -778,4 +821,50 @@ img {
     .fact-card h3 {
         font-size: var(--font-size-base);
     }
+}
+
+/* 2000s Retro Styling */
+.silly-text {
+    font-family: 'Comic Sans MS', 'Arial Black', Impact, sans-serif;
+    color: #ff69b4;
+    text-shadow: 2px 2px 0px #000, -1px -1px 0px #00bcd4;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.retro-table {
+    background-color: rgba(20, 20, 50, 0.8);
+    border: 3px solid var(--color-accent);
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.retro-table td {
+    padding: 15px;
+    vertical-align: top;
+    border: 1px dashed var(--color-accent);
+}
+
+.retro-content {
+    background-color: rgba(20, 20, 50, 0.8);
+    padding: 20px;
+    margin: 20px;
+    border: 5px groove var(--color-accent);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+}
+
+.retro-banner {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 0 15px var(--color-accent);
 }
