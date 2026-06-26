@@ -8,6 +8,8 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Configuration (loaded first) -->
+    <script src="js/config.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -28,226 +30,46 @@
                 <p class="lead">Browse our collection of adorable cats</p>
             </header>
 
-            <!-- Card Grid -->
-            <section class="card-grid-section mb-5">
-                <div class="card-grid">
-                    <!-- Card 1 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=1" class="card-img-top" alt="Fluffy Cat">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Fluffy</h3>
-                            <p class="card-text">A beautiful long-haired cat with a playful personality. Loves cuddles and chasing laser pointers.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-primary">Persian</span>
-                                <span class="age">2 years</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 2 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=2" class="card-img-top" alt="Whiskers">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Whiskers</h3>
-                            <p class="card-text">An energetic tabby cat who enjoys climbing and exploring. Always curious about everything around him.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-success">Tabby</span>
-                                <span class="age">3 years</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 3 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=3" class="card-img-top" alt="Mittens">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Mittens</h3>
-                            <p class="card-text">A gentle Siamese cat with striking blue eyes. Very vocal and loves to communicate with her humans.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-info">Siamese</span>
-                                <span class="age">1 year</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 4 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=4" class="card-img-top" alt="Shadow">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Shadow</h3>
-                            <p class="card-text">A sleek black cat who moves like a ninja. Very affectionate once she gets to know you.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-dark">Domestic Short Hair</span>
-                                <span class="age">4 years</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 5 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=5" class="card-img-top" alt="Luna">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Luna</h3>
-                            <p class="card-text">A graceful Maine Coon with a luxurious coat. Very intelligent and can learn tricks.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-warning text-dark">Maine Coon</span>
-                                <span class="age">5 years</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 6 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=6" class="card-img-top" alt="Leo">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Leo</h3>
-                            <p class="card-text">A brave Bengal cat with stunning rosetted markings. Loves water and has boundless energy.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-danger">Bengal</span>
-                                <span class="age">2 years</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 7 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=7" class="card-img-top" alt="Bella">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Bella</h3>
-                            <p class="card-text">A sweet Ragdoll with mesmerizing blue eyes. Very docile and loves being held like a baby.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-light text-dark">Ragdoll</span>
-                                <span class="age">3 years</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 8 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=8" class="card-img-top" alt="Max">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Max</h3>
-                            <p class="card-text">A charming British Shorthair with a round face and plush coat. Very laid-back and easygoing.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-secondary">British Shorthair</span>
-                                <span class="age">6 years</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 9 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=9" class="card-img-top" alt="Chloe">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Chloe</h3>
-                            <p class="card-text">A playful Scottish Fold with unique folded ears. Very social and gets along with other pets.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-primary">Scottish Fold</span>
-                                <span class="age">2 years</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 10 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=10" class="card-img-top" alt="Oliver">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Oliver</h3>
-                            <p class="card-text">A friendly Sphynx cat who loves attention. Despite being hairless, he enjoys cuddling under blankets.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-light text-dark">Sphynx</span>
-                                <span class="age">1 year</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 11 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=11" class="card-img-top" alt="Lucy">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Lucy</h3>
-                            <p class="card-text">A loving Abyssinian with a warm, reddish coat. Very active and enjoys interactive play.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-success">Abyssinian</span>
-                                <span class="age">4 years</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Card 12 -->
-                    <article class="card">
-                        <div class="card-image-container">
-                            <img src="https://placekitten.com/400/300?image=12" class="card-img-top" alt="Charlie">
-                            <div class="card-overlay">
-                                <span class="overlay-text">View Details</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Charlie</h3>
-                            <p class="card-text">A curious Russian Blue with a silver-blue coat. Shy at first but very loyal once he trusts you.</p>
-                            <div class="card-meta">
-                                <span class="badge bg-info">Russian Blue</span>
-                                <span class="age">3 years</span>
-                            </div>
-                        </div>
-                    </article>
+            <!-- Search Form -->
+            <form id="search-form" class="search-form mb-4">
+                <div class="input-group">
+                    <input 
+                        type="search" 
+                        id="search-input" 
+                        class="form-control form-control-lg" 
+                        placeholder="Search cats by name, breed, or description..." 
+                        aria-label="Search cats"
+                    >
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-search"></i> Search
+                    </button>
                 </div>
+            </form>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading-overlay" style="display: none;">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <span class="loading-text">Loading cats...</span>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+
+            <!-- Empty State -->
+            <div id="empty-message" class="alert alert-info" style="display: none;"></div>
+
+            <!-- Card Grid (Dynamic) -->
+            <section class="card-grid-section mb-5">
+                <div id="cat-grid" class="row"></div>
             </section>
+
+            <!-- Pagination Info -->
+            <div id="pagination-info" class="pagination-info text-center mb-3 text-muted"></div>
+
+            <!-- Pagination -->
+            <nav id="pagination" class="pagination-container mb-4"></nav>
         </div>
     </main>
 
@@ -258,6 +80,9 @@
         </div>
     </footer>
 
+    <!-- API and Application Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
     <!-- Bootstrap 5 JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

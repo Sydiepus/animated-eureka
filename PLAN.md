@@ -104,7 +104,7 @@ project/
 | **Hero Section** | Brief introduction to the site |
 | **Search Bar** | Client-side search to filter cats by name/breed |
 | **Card Grid** | Responsive grid of cat cards with hover effects |
-| **Pagination** | Page through API results (12 cats per page) |
+| **Pagination** | Page through API results (20 cats per page - API limit) |
 | **Footer** | Copyright and contact information |
 
 #### Card Features
@@ -206,8 +206,8 @@ class CatAPI {
     this.cache = new Map();
   }
 
-  async fetchCats(limit = 12, offset = 0) {
-    const cacheKey = `cats-${limit}-${offset}`;
+  async fetchCats(offset = 0) {
+    const cacheKey = `cats-${offset}`;
     
     // Return cached data if available
     if (this.cache.has(cacheKey)) {
@@ -215,14 +215,15 @@ class CatAPI {
     }
 
     try {
-      const response = await fetch(
-        `${this.baseUrl}?limit=${limit}&offset=${offset}`,
-        {
-          headers: {
-            'X-Api-Key': this.apiKey
-          }
+      const url = new URL(this.baseUrl);
+      url.searchParams.append('min_weight', '0');  // Required parameter
+      url.searchParams.append('offset', offset);
+      
+      const response = await fetch(url.toString(), {
+        headers: {
+          'X-Api-Key': this.apiKey
         }
-      );
+      });
 
       if (!response.ok) {
         throw new Error(`API request failed: ${response.status}`);
@@ -238,16 +239,16 @@ class CatAPI {
   }
 
   async fetchAllCats() {
-    // Fetch all cats (API limit may apply)
+    // Fetch all cats (API returns max 20 per request)
     const allCats = [];
     let offset = 0;
-    const limit = 50; // Max per request
+    const apiPageSize = 20; // API Ninjas returns max 20 results
     
     while (true) {
-      const cats = await this.fetchCats(limit, offset);
+      const cats = await this.fetchCats(offset);
       if (cats.length === 0) break;
       allCats.push(...cats);
-      offset += limit;
+      offset += apiPageSize;
     }
     
     return allCats;
@@ -785,15 +786,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 **Goal:** Connect to API Ninjas and display real cat data
 
-- [ ] Register for API Ninjas account and get API key
-- [ ] Create `js/config.js` with API key (add to .gitignore)
-- [ ] Implement `CatAPI` class with `fetchCats()` method
-- [ ] Add error handling with try/catch
-- [ ] Implement loading state (spinner)
-- [ ] Display fetched cat data in cards
-- [ ] Add pagination controls (12 cats per page)
-- [ ] Test API connection and data display
-- [ ] Commit: "Integrate API Ninjas cat API with loading states"
+- [x] Register for API Ninjas account and get API key
+- [x] Create `js/config.js` with API key (add to .gitignore)
+- [x] Implement `CatAPI` class with `fetchCats()` method
+- [x] Add error handling with try/catch
+- [x] Implement loading state (spinner)
+- [x] Display fetched cat data in cards
+- [x] Add pagination controls (20 cats per page - API limit)
+- [x] Test API connection and data display
+- [x] Commit: "Integrate API Ninjas cat API with loading states"
 
 **Deliverables:**
 - Live cat data displayed in cards
@@ -1070,34 +1071,40 @@ document.addEventListener('DOMContentLoaded', () => {
 ```json
 [
   {
-    "name": "Abyssinian",
-    "description": "The Abyssinian is easy to care for, and a joy to have in your home. They are affectionate and love to be in the middle of all action. They are also very curious and will follow you around the house, investigating each and everything that you do. At the same time, they are also very independent and will amuse themselves if you are not around.",
-    "origin": "Egypt",
-    "temperament": ["Active", "Energetic", "Intelligent", "Friendly", "Gentle"],
-    "life_span": "14 - 15",
-    "adaptability": 5,
-    "affection_level": 5,
-    "child_friendly": 3,
-    "grooming": 1,
-    "intelligence": 5,
-    "health_issues": 2,
-    "social_needs": 5,
-    "stranger_friendly": 5
-  },
-  {
-    "name": "Aegean",
-    "description": "Native to the Greek islands known as the Cyclades in the Aegean sea, these are the only natural Greek variety of cat. They are rare, and have only recently been selectively bred, mainly by cat fanciers in Greece. These are a medium-sized cat with a semi-longhaired coat. Aegean cats are the only cat known to have three different colored eyes.",
-    "origin": "Greece",
-    "temperament": ["Intelligent", "Affectionate", "Social", "Playful", "Loyal"],
-    "life_span": "12 - 17",
-    "adaptability": 5,
-    "affection_level": 4,
-    "child_friendly": 4,
+    "length": "12 to 16 inches",
+    "origin": "Southeast Asia",
+    "image_link": "https://api-ninjas.com/images/cats/abyssinian.jpg",
+    "family_friendly": 3,
+    "shedding": 3,
+    "general_health": 2,
+    "playfulness": 5,
+    "children_friendly": 5,
     "grooming": 3,
     "intelligence": 5,
-    "health_issues": 1,
-    "social_needs": 5,
-    "stranger_friendly": 5
+    "other_pets_friendly": 5,
+    "min_weight": 6,
+    "max_weight": 10,
+    "min_life_expectancy": 9,
+    "max_life_expectancy": 15,
+    "name": "Abyssinian"
+  },
+  {
+    "length": "18 to 24 inches",
+    "origin": "Greece",
+    "image_link": "https://api-ninjas.com/images/cats/aegean.jpg",
+    "family_friendly": 4,
+    "shedding": 2,
+    "general_health": 4,
+    "playfulness": 4,
+    "children_friendly": 4,
+    "grooming": 3,
+    "intelligence": 5,
+    "other_pets_friendly": 5,
+    "min_weight": 7,
+    "max_weight": 12,
+    "min_life_expectancy": 12,
+    "max_life_expectancy": 17,
+    "name": "Aegean"
   }
 ]
 ```
