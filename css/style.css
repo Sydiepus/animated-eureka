@@ -1,0 +1,201 @@
+/* CSS Reset and Base Styles */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-color-hover);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* CSS Variables */
+:root {
+    /* Colors */
+    --color-primary: #4a6fa5;
+    --color-secondary: #166088;
+    --color-accent: #4fc3f7;
+    --color-light: #f8f9fa;
+    --color-dark: #343a40;
+    
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --text-color-light: #666666;
+    --link-color: var(--color-primary);
+    --link-color-hover: var(--color-secondary);
+    
+    /* Typography */
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-secondary: Georgia, 'Times New Roman', serif;
+    --font-size-base: 16px;
+    --font-size-small: 14px;
+    --font-size-large: 18px;
+    --line-height-base: 1.6;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Borders & Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-color: #dddddd;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    
+    /* Navigation */
+    --nav-bg: var(--color-secondary);
+    --nav-text: #ffffff;
+    --nav-text-hover: var(--color-accent);
+    --nav-height: 60px;
+}
+
+/* Utility Classes */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+/* Navigation Bar */
+.navbar {
+    background-color: var(--nav-bg);
+    color: var(--nav-text);
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar-brand {
+    font-size: var(--font-size-large);
+    font-weight: 700;
+    color: var(--nav-text);
+}
+
+.navbar-brand:hover {
+    color: var(--nav-text-hover);
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
+
+.navbar-nav a {
+    color: var(--nav-text);
+    font-weight: 500;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+}
+
+.navbar-nav a:hover {
+    color: var(--nav-text-hover);
+}
+
+.navbar-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--nav-text-hover);
+    transition: width 0.3s ease;
+}
+
+.navbar-nav a:hover::after {
+    width: 100%;
+}
+
+/* Main Content */
+.main {
+    padding: var(--spacing-lg) 0;
+    min-height: calc(100vh - var(--nav-height));
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    text-align: center;
+    padding: var(--spacing-md);
+    margin-top: auto;
+}
+
+/* Page Headings */
+.page-heading {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: none;
+    }
+    
+    .page-heading {
+        font-size: 2rem;
+    }
+}
