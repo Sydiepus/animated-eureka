@@ -83,6 +83,7 @@ class CatGrid {
     this.searchInput = document.getElementById('search-input');
     this.paginationElement = document.getElementById('pagination');
     this.searchForm = document.getElementById('search-form');
+    this.clearSearchButton = document.getElementById('clear-search');
     
     this.init();
   }
@@ -107,6 +108,13 @@ class CatGrid {
         if (this.searchInput) {
           this.handleSearch(this.searchInput.value);
         }
+      });
+    }
+    
+    // Clear search button
+    if (this.clearSearchButton) {
+      this.clearSearchButton.addEventListener('click', () => {
+        this.clearSearch();
       });
     }
   }
@@ -175,6 +183,22 @@ class CatGrid {
     
     this.setState({ filteredCats: filtered });
     this.render();
+    
+    // Show/hide clear button based on input
+    this.updateClearButtonVisibility(query);
+  }
+
+  clearSearch() {
+    if (this.searchInput) {
+      this.searchInput.value = '';
+    }
+    this.handleSearch('');
+  }
+
+  updateClearButtonVisibility(query) {
+    if (this.clearSearchButton) {
+      this.clearSearchButton.style.display = query && query.trim() !== '' ? 'block' : 'none';
+    }
   }
 
   render() {

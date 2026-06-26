@@ -8,6 +8,48 @@ class CatAPI {
     this.apiKey = API_CONFIG.key;
     this.baseUrl = API_CONFIG.baseUrl || 'https://api.api-ninjas.com/v1/cats';
     this.cache = new Map();
+    this.storagePrefix = 'cat-api-';
+    this.loadFromLocalStorage();
+  }
+
+  /**
+   * Load cached data from localStorage into memory cache
+   */
+  loadFromLocalStorage() {
+    try {
+      const keys = Object.keys(localStorage);
+      keys.forEach(key => {
+        if (key.startsWith(this.storagePrefix)) {
+          const cacheKey = key.substring(this.storagePrefix.length);
+          const data = localStorage.getItem(key);
+          if (data) {
+            try {
+              this.cache.set(cacheKey, JSON.parse(data));
+              console.log(`Loaded cached data from localStorage for ${cacheKey}`);
+            } catch (e) {
+              console.warn(`Failed to parse cached data for ${cacheKey}`, e);
+            }
+          }
+        }
+      });
+    } catch (error) {
+      console.warn('Error loading from localStorage:', error);
+    }
+  }
+
+  /**
+   * Save data to localStorage
+   * @param {string} cacheKey - The cache key
+   * @param {any} data - Data to cache
+   */
+  saveToLocalStorage(cacheKey, data) {
+    try {
+      const storageKey = this.storagePrefix + cacheKey;
+      localStorage.setItem(storageKey, JSON.stringify(data));
+      console.log(`Saved data to localStorage for ${cacheKey}`);
+    } catch (error) {
+      console.warn('Error saving to localStorage:', error);
+    }
   }
 
   /**
@@ -45,8 +87,9 @@ class CatAPI {
 
       const data = await response.json();
       
-      // Cache the response
+      // Cache the response in memory and localStorage
       this.cache.set(cacheKey, data);
+      this.saveToLocalStorage(cacheKey, data);
       console.log(`Fetched ${data.length} cats from API (offset: ${offset})`);
       
       return data;
@@ -114,11 +157,23 @@ class CatAPI {
   }
 
   /**
-   * Clear the cache
+   * Clear the cache from both memory and localStorage
    */
   clearCache() {
     this.cache.clear();
-    console.log('API cache cleared');
+    
+    // Clear from localStorage
+    try {
+      const keys = Object.keys(localStorage);
+      keys.forEach(key => {
+        if (key.startsWith(this.storagePrefix)) {
+          localStorage.removeItem(key);
+        }
+      });
+      console.log('API cache cleared from memory and localStorage');
+    } catch (error) {
+      console.warn('Error clearing localStorage cache:', error);
+    }
   }
 }
 

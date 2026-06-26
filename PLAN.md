@@ -807,18 +807,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 **Goal:** Add client-side search functionality
 
-- [ ] Add search input to home page
-- [ ] Implement `handleSearch()` in CatGrid class
-- [ ] Filter cats by name and breed
-- [ ] Update empty state message for no results
-- [ ] Clear search button (optional)
-- [ ] Test search functionality
+- [x] Add search input to home page
+- [x] Implement `handleSearch()` in CatGrid class
+- [x] Filter cats by name and breed
+- [x] Update empty state message for no results
+- [x] Clear search button (optional)
+- [x] Test search functionality
 - [ ] Commit: "Add client-side search and filtering"
 
 **Deliverables:**
-- Working search functionality
-- Empty state handling
-- Responsive search bar
+- [x] Working search functionality
+- [x] Empty state handling
+- [x] Responsive search bar
 
 ---
 
@@ -962,8 +962,8 @@ document.addEventListener('DOMContentLoaded', () => {
 - [ ] Loading state shows/hides properly
 - [ ] Error messages display correctly
 - [ ] Empty state shows when no results
-- [ ] Search filters cats by name
-- [ ] Search filters cats by breed
+- [x] Search filters cats by name
+- [x] Search filters cats by breed
 - [ ] Pagination works (previous/next)
 - [ ] Pagination works (page numbers)
 - [ ] Navigation links work between pages
@@ -1055,7 +1055,7 @@ document.addEventListener('DOMContentLoaded', () => {
 | 2 | ✅ Responsive card grid with hover effects implemented | Pending |
 | 3 | ✅ Cat data fetched from API Ninjas and displayed | Pending |
 | 4 | ✅ 15+ real personal content items about cats | Pending |
-| 5 | ✅ Client-side search/filter/pagination working | Pending |
+| 5 | ✅ Client-side search/filter/pagination working | Complete |
 | 6 | ✅ Loading, error, and empty states handled | Pending |
 | 7 | ✅ Deployed to free hosting with working URL | Pending |
 | 8 | ✅ README.md with all required sections | Pending |
