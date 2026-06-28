@@ -129,9 +129,8 @@ My project is to Design a responsive card grid layout with hover effects
 ## Screenshots
 
 ### Desktop View (1920x1080)
-
+![](./screenshots/Desktop.png)
 ### Tablet View (iPad - 768px)
-
+![](./screenshots/Ipad.png)
 ### Mobile View (iPhone SE - 375px)
-
-## License
+![](./screenshots/Iphone%20SE.png)
