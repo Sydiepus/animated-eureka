@@ -91,6 +91,7 @@ img {
     --nav-bg: #0a0a2a;
     --nav-text: #ffffff;
     --nav-text-hover: var(--color-accent);
+    --nav-text-active: var(--color-primary);
     --nav-height: 60px;
 }
 
@@ -173,6 +174,16 @@ img {
 
 .navbar-nav a:hover::after {
     width: 100%;
+}
+
+.navbar-nav a.active {
+    color: var(--nav-text-active);
+    font-weight: 600;
+}
+
+.navbar-nav a.active::after {
+    width: 100%;
+    background-color: var(--nav-text-active);
 }
 
 /* Main Content */
@@ -329,6 +340,26 @@ img {
         font-size: var(--font-size-base);
     }
     
+    /* Navbar mobile responsiveness */
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: var(--spacing-sm) var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+    
+    .navbar-brand {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .navbar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+    
     /* Fix Bootstrap input-group width issue on small screens */
     .input-group > .form-control {
         width: auto;
@@ -343,6 +374,16 @@ img {
     
     .page-header {
         margin-bottom: var(--spacing-md);
+    }
+    
+    /* Navbar extra small screens */
+    .navbar-nav {
+        gap: var(--spacing-xs);
+    }
+    
+    .navbar-nav a {
+        font-size: var(--font-size-small);
+        padding: var(--spacing-xs);
     }
     
     .input-group {
