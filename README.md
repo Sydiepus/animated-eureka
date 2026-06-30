@@ -1,6 +1,17 @@
+# Me
+
+I am Charbel Assaaad.
+
 # CatInfo - Responsive Cat Information Website
 
 A responsive website displaying cat information fetched from the API-Ninjas Cat API, with personal content about why cats make great pets.
+
+## Responsive Card Grid with Hover Effects
+
+I designed a responsive card grid to display the cat data returned from the API. The grid uses CSS Grid with `repeat(auto-fill, minmax(300px, 1fr))`, so cards automatically reflow into as many columns as fit the screen width, with each card never shrinking below 300px. 
+Breakpoints at 768px and 576px adjust image heights, spacing, and navbar layout for tablet and mobile, while a breakpoint at 1200px increases image height on larger screens.
+
+Each card has a hover effect: it lifts up with a shadow (`translateY(-8px)`), the image inside zooms slightly (`scale(1.05)`), and a dark gradient overlay fades in over the image revealing the cat's name and a short description.
 
 ## Features
 
@@ -10,26 +21,6 @@ A responsive website displaying cat information fetched from the API-Ninjas Cat 
 - Personal about page with cat content
 - Gallery page
 - Secure API integration via serverless functions
-
-## Project Structure
-
-```
-cat-project/
-├── index.html          # Main cat gallery page
-├── about.html         # About page with personal cat content
-├── gallery.html        # Gallery page
-├── api/
-│   └── cats.js        # Vercel serverless function (API proxy)
-├── css/
-│   └── style.css      # Custom styles
-├── js/
-│   ├── api.js         # API client (calls serverless function)
-│   ├── main.js        # Main application logic
-│   └── config.js      # API configuration (GITIGNORED)
-├── .env.example       # Environment variables template
-├── .gitignore
-└── README.md
-```
 
 ## Setup & Installation
 
@@ -119,6 +110,14 @@ I want my website to display information about cats I want to pull cat informati
 for my own content I will add explanation about why cats are cool and my experience with them.
 
 My project is to Design a responsive card grid layout with hover effects
+```
+- Subsequent prompts where to implement the phase like:
+```
+Let's Implement Phase x
+```
+- Implementing the mission.html, I already had the html for the main page ready so that AI only had to update the background and integrate navbar:
+```
+Given this html add this as a mission section on this site use images/web-back-cat-nose-flat.gif as a background on all the site.
 ```
 
 ### What AI Got Wrong & How I Fixed It
